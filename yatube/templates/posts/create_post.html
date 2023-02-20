@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load user_filters %}
+
 {% block title %}
   {% if is_edit %}
     Редактировать запись
@@ -22,7 +23,7 @@
           </div>
           <div class="card-body">
             {% if is_edit %}
-              <form method="post" action="{% url 'posts:post_edit' post.pk %}">
+              <form method="post" action="{% url 'posts:post_edit' pk %}">
               {% else %}
                 <form method="post" action="{% url 'posts:post_create' %}">
                 {% endif %}
@@ -32,7 +33,7 @@
                   {% for field in form %}
                     {{ field.errors }}
                     {{ field.label_tag }}
-                    {{ field|addclass:'form-control' }}
+                    {{ field|addclass:"form-control" }}
                   </div>
                 {% endfor %}
                 <div class="d-flex justify-content-end">

@@ -1,10 +1,9 @@
 from django.contrib.auth.views import LoginView, LogoutView
 from django.urls import path
-from users.apps import UsersConfig
 
-from . import views
+from users.views import SignUp
 
-app_name = UsersConfig.name
+app_name = '%(users_label)s'
 
 urlpatterns = [
     path(
@@ -12,7 +11,7 @@ urlpatterns = [
         LogoutView.as_view(template_name='users/logged_out.html'),
         name='logout',
     ),
-    path('signup/', views.SignUp.as_view(), name='signup'),
+    path('signup/', SignUp.as_view(), name='signup'),
     path(
         'login/',
         LoginView.as_view(template_name='users/login.html'),

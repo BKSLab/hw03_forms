@@ -11,14 +11,14 @@
           </a>
         </li>
       {% endif %}
-      {% for i in page_obj.paginator.page_range %}
-        {% if page_obj.number == i %}
+      {% for namber_page in page_obj.paginator.page_range %}
+        {% if page_obj.number == namber_page %}
           <li class="page-item active">
-            <span class="page-link">{{ i }}</span>
+            <span class="page-link">{{ namber_page }}</span>
           </li>
         {% else %}
           <li class="page-item">
-            <a class="page-link" href="?page={{ i }}">{{ i }}</a>
+            <a class="page-link" href="?page={{ namber_page }}">{{ namber_page }}</a>
           </li>
         {% endif %}
       {% endfor %}

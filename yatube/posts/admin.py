@@ -1,6 +1,6 @@
 from django.contrib import admin
-from posts.models import Group, Post
 
+from posts.models import Group, Post
 from yatube.admin import BaseAdmin
 
 
@@ -25,3 +25,4 @@ class GroupAdmin(BaseAdmin):
         'slug',
         'description',
     )
+    prepopulated_fields = {'slug': ('title',)}

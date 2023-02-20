@@ -9,10 +9,10 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
-    'users.apps.UsersConfig',
-    'posts.apps.PostsConfig',
-    'core.apps.CoreConfig',
     'about.apps.AboutConfig',
+    'core.apps.CoreConfig',
+    'posts.apps.PostsConfig',
+    'users.apps.UsersConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -86,7 +86,7 @@ TIME_ZONE = 'UTC'
 
 STATIC_URL = '/static/'
 
-NOMBER_DISPLAYED_OBJECTS = 10
+OBJECTS_PER_PAGE = 10
 
 LOGIN_URL = 'users:login'
 
