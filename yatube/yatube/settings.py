@@ -88,6 +88,8 @@ STATIC_URL = '/static/'
 
 OBJECTS_PER_PAGE = 10
 
+SHOW_WORDS = 25
+
 LOGIN_URL = 'users:login'
 
 LOGIN_REDIRECT_URL = 'posts:h_page'

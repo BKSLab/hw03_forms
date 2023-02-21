@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.contrib.auth import get_user_model
 from django.db import models
 from django.urls import reverse
@@ -44,7 +45,7 @@ class Post(models.Model):
         default_related_name = 'posts'
 
     def __str__(self) -> str:
-        return self.text[:25]
+        return self.text[: settings.SHOW_WORDS]
 
     def get_absolute_url(self):
         return reverse("posts:post_detail", kwargs={"pk": self.pk})
