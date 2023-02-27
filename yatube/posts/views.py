@@ -1,3 +1,4 @@
+from typing import Any
 from django.contrib.auth import get_user_model
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import get_object_or_404, redirect, render
@@ -35,7 +36,7 @@ def group_posts(request: object, slug: str) -> Group:
     )
 
 
-def profile(request, username):
+def profile(request: Any, username: Any) -> Any:
     user_name = get_object_or_404(User, username=username)
     posts = user_name.posts.all()
     page = paginate(request, posts)
@@ -49,7 +50,7 @@ def profile(request, username):
     )
 
 
-def post_detail(request, pk):
+def post_detail(request: Any, pk: Any) -> Any:
     post = get_object_or_404(Post, pk=pk)
     return render(
         request,
@@ -81,7 +82,7 @@ def post_edit(request, pk):
     post = get_object_or_404(Post, pk=pk)
     form = PostForm(request.POST or None, instance=post)
     if request.user != post.author:
-        return redirect('post_detail', pk)
+        return redirect('posts:post_detail', pk)
     if form.is_valid():
         form.save()
         return redirect('posts:post_detail', pk)
@@ -92,6 +93,5 @@ def post_edit(request, pk):
             'is_edit': True,
             'post': post,
             'form': form,
-            'pk': pk,
         },
     )

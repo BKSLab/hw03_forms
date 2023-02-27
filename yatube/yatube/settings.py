@@ -6,7 +6,12 @@ SECRET_KEY = 'nh*cicaw3!u98pewazgdw6w=1hivw5_g-x+3+_t!in7n9(#pz^'
 
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'localhost',
+    '127.0.0.1',
+    '[::1]',
+    'testserver',
+]
 
 INSTALLED_APPS = [
     'about.apps.AboutConfig',
@@ -88,7 +93,7 @@ STATIC_URL = '/static/'
 
 OBJECTS_PER_PAGE = 10
 
-SHOW_WORDS = 25
+SHOW_WORDS = 15
 
 LOGIN_URL = 'users:login'
 

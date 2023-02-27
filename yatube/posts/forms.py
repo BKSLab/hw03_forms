@@ -19,13 +19,13 @@ class PostForm(ModelForm):
                     'rows': '10',
                     'class': 'form-control',
                     'required id': 'id_text',
-                }
+                },
             ),
             'group': Select(
                 attrs={
                     'name': 'group',
                     'class': 'form-control',
                     'id': 'id_group',
-                }
+                },
             ),
         }
